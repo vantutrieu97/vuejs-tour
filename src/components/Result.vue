@@ -16,8 +16,8 @@
       ]),
       result() {
         return this.$store.state.result;
-      }
-    }
+      },
+    },
   }
 </script>
 

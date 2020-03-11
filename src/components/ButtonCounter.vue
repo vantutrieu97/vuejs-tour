@@ -9,12 +9,12 @@
   export default {
     methods: {
       increment: function () {
-        return this.$store.state.result++;
+        return this.$store.commit('incrementOption', 246);
       },
       decrement: function () {
-        return this.$store.state.result--;
+        return this.$store.commit('decrementOption', 444);
       }
-    }
+    },
   }
 </script>
 

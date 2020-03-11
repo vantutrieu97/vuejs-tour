@@ -17,5 +17,13 @@ export const store = new Vuex.Store({
     getNameResult: state => {
       return state.result + '\'s name :p';
     }
+  },
+  mutations: {
+    incrementOption(state, option) {
+      return state.result += option;
+    },
+    decrementOption(state, option) {
+      return state.result -= option;
+    }
   }
 });
