@@ -1,7 +1,7 @@
 <template>
   <div>
-    <button type="button" v-on:click="increment">Increment</button>
-    <button type="button" v-on:click="decrement">Decrement</button>
+    <button type="button" v-on:click="decrement">Decrement (-)</button>
+    <button type="button" v-on:click="increment">Increment (+)</button>
   </div>
 </template>
 
