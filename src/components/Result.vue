@@ -1,9 +1,12 @@
 <template>
   <div>
     <p>This is result: </p>
-    <h1>{{getTenResult}}</h1>
-    <h1>{{result}}</h1>
-    <h1>This is name result: {{getNameResult}}</h1>
+    <h4>{{getTenResult}}</h4>
+    <h4>{{getResult}}</h4>
+    <h4>This is name result: {{getNameResult}}</h4>
+    <hr>
+    <input type="text" v-model="value"/>
+    <h4>This is value: {{getValue}}</h4>
   </div>
 </template>
 
@@ -12,12 +15,22 @@
 
   export default {
     computed: {
-      ...mapGetters(["getTenResult", "getNameResult",
+      ...mapGetters(["getResult", "getTenResult", "getNameResult", "getValue"
       ]),
-      result() {
-        return this.$store.state.result;
-      },
+      value: {
+        get() {
+          return this.$store.getters.getValue
+        },
+        set(value) {
+          return this.$store.dispatch('updateValueAction', value)
+        }
+      }
     },
+    methods: {
+      updateValue: function (event) {
+        this.$store.dispatch('updateValueAction', event.target.value)
+      }
+    }
   }
 </script>
 

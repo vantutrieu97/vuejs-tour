@@ -5,7 +5,8 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state: {
-    result: 0
+    result: 0,
+    value: ""
   },
   getters: {
     getResult: state => {
@@ -16,6 +17,9 @@ export const store = new Vuex.Store({
     },
     getNameResult: state => {
       return state.result + '\'s name :p';
+    },
+    getValue: state => {
+      return state.value;
     }
   },
   mutations: {
@@ -24,6 +28,9 @@ export const store = new Vuex.Store({
     },
     decrementOption(state, option) {
       return state.result -= option;
+    },
+    updateValueMutation(state, payload) {
+      return state.value = payload;
     }
   },
   actions: {
@@ -34,6 +41,9 @@ export const store = new Vuex.Store({
       setTimeout(() => {
         commit('incrementOption', 444);
       }, 3000)
+    },
+    updateValueAction: ({commit}, payload) => {
+      commit('updateValueMutation', payload)
     }
   }
 });
