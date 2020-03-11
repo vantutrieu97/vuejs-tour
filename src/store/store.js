@@ -25,5 +25,15 @@ export const store = new Vuex.Store({
     decrementOption(state, option) {
       return state.result -= option;
     }
+  },
+  actions: {
+    incrementAction: ({commit}) => {
+      commit('incrementOption', 1);
+    },
+    decrementAction: ({commit}) => {
+      setTimeout(() => {
+        commit('incrementOption', 444);
+      }, 3000)
+    }
   }
 });
