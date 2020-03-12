@@ -1,9 +1,10 @@
 <template>
   <div>
     <div>
-      <button type="button" v-on:click="decrement">Decrement (-)</button>
-      <button type="button" v-on:click="increment">Increment (+)</button>
+      <button type="button" v-on:click="decrement(1)">Decrement (-)</button>
+      <button type="button" v-on:click="increment(1)">Increment (+)</button>
     </div>
+    <button type="button" v-on:click='incrementActionFake(1)'>Increment action</button>
     <button type="button" v-on:click="decrementAction">Decrement action</button>
   </div>
 </template>
@@ -13,13 +14,17 @@
 
   export default {
     methods: {
-      increment: function () {
-        return this.$store.commit('incrementOption', 246);
+      ...mapActions(["decrementAction", 'incrementAction']),
+      increment(value) {
+        return this.$store.commit('incrementOption', value);
       },
-      decrement: function () {
-        return this.$store.commit('decrementOption', 444);
+      decrement(value) {
+        return this.$store.commit('decrementOption', value);
       },
-      ...mapActions(["decrementAction"])
+      incrementActionFake(value) {
+        console.log('Click on incrementActionFake... ' + value);
+        this.incrementAction(value);
+      },
     },
 
   }

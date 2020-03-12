@@ -26,11 +26,6 @@
         }
       }
     },
-    methods: {
-      updateValue: function (event) {
-        this.$store.dispatch('updateValueAction', event.target.value)
-      }
-    }
   }
 </script>
 
